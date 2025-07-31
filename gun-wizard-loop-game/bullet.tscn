@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl2wj0jpcd8u"]
+
+[ext_resource type="Script" uid="uid://cpa4l3gwi1p0p" path="res://bullet.gd" id="1_v7oki"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_v7oki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rtl8c")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -10, 8, -6, 10, 0, 7, 7, 0, 10, -7, 7, -10, 0, -7, -7)
