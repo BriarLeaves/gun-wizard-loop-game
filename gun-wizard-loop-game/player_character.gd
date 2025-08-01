@@ -6,13 +6,10 @@ var move_vector: Vector2 = Vector2.ZERO
 var mouse_position: Vector2 = Vector2.ZERO
 var player_speed: float = 400
 
-var bullet_direction: Vector2 = Vector2.ZERO
-var bullet_speed: float = 3
-
 var lower_wrap_bound: float = 648
 var right_wrap_bound: float = 1152
 
-@onready var bullet = preload("res://bullet.tscn")
+signal shoot_bullet
 
 func _ready():
 	pass
@@ -30,12 +27,7 @@ func _process(delta):
 		y_axis += 1
 		
 	if Input.is_action_just_pressed("shoot"):
-		mouse_position = get_viewport().get_mouse_position()
-		bullet_direction = (mouse_position - position).normalized()
-		var bullet_instance = bullet.instantiate()
-		bullet_instance.velocity = bullet_direction * bullet_speed
-		bullet_instance.position = position
-		$"../BulletManager".add_child(bullet_instance)
+		shoot_bullet.emit()
 	pass
 
 func _physics_process(delta):
