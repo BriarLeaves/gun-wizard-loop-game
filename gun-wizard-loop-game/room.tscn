@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6gey8ieo7rlf"]
+[gd_scene load_steps=4 format=3 uid="uid://6gey8ieo7rlf"]
 
 [ext_resource type="PackedScene" uid="uid://i6n47d8uj3a8" path="res://player_character.tscn" id="1_88gup"]
 [ext_resource type="Script" uid="uid://dutfqa6xv3364" path="res://bullet_manager.gd" id="2_bisa2"]
+[ext_resource type="PackedScene" uid="uid://dvfrbvgvf0s68" path="res://target.tscn" id="3_4o3f6"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -11,5 +12,8 @@ position = Vector2(655, 335)
 [node name="BulletManager" type="Node" parent="."]
 script = ExtResource("2_bisa2")
 bullet_speed = 5.0
+
+[node name="Target" parent="." instance=ExtResource("3_4o3f6")]
+position = Vector2(179, 147)
 
 [connection signal="shoot_bullet" from="Player" to="BulletManager" method="_on_player_shoot_bullet"]

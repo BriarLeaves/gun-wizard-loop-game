@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvfrbvgvf0s68"]
+
+[ext_resource type="Script" uid="uid://kvob1gv4kev1" path="res://target.gd" id="1_t2jmu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hr3o"]
+size = Vector2(60, 60)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t2jmu"]
+radius = 29.0
+
+[node name="Target" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_t2jmu")
+
+[node name="Sprite" type="Polygon2D" parent="."]
+color = Color(0.664744, 0, 0.0435995, 1)
+polygon = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
+
+[node name="PlayerCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3hr3o")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="BulletCollider" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_t2jmu")
+debug_color = Color(0.444718, 0.452345, 1, 0.42)
