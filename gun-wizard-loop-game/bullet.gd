@@ -17,7 +17,3 @@ func _physics_process(delta: float) -> void:
 	position += velocity
 	position.x = wrapf(position.x, 0, screen_size.x)
 	position.y = wrapf(position.y, 0, screen_size.y)
-
-
-func _on_timer_timeout() -> void:
-	queue_free()

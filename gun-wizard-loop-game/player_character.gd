@@ -6,8 +6,7 @@ var move_vector: Vector2 = Vector2.ZERO
 var mouse_position: Vector2 = Vector2.ZERO
 var player_speed: float = 400
 
-var lower_wrap_bound: float = 648
-var right_wrap_bound: float = 1152
+@onready var screen_size: Vector2 = get_viewport_rect().size
 
 signal shoot_bullet
 
@@ -34,14 +33,6 @@ func _physics_process(delta):
 	move_and_slide()
 	move_vector = Vector2(x_axis, y_axis).normalized()
 	velocity = move_vector * player_speed
-	screen_wrap()
+	position.x = wrapf(position.x, 0, screen_size.x)
+	position.y = wrapf(position.y, 0, screen_size.y)
 	
-func screen_wrap():
-	if position.y < 0:
-		position.y = lower_wrap_bound
-	elif position.y > lower_wrap_bound:
-		position.y = 0
-	if position.x < 0:
-		position.x = right_wrap_bound
-	elif position.x > right_wrap_bound:
-		position.x = 0
