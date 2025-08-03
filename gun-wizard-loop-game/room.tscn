@@ -24,6 +24,7 @@ script = ExtResource("4_v5vuv")
 enemies = Array[PackedScene]([ExtResource("2_4o3f6"), ExtResource("4_x5k2b"), ExtResource("5_8cv3p")])
 
 [node name="Floor" type="Sprite2D" parent="."]
+modulate = Color(0.593134, 0.593134, 0.593134, 1)
 position = Vector2(323, 184)
 texture = ExtResource("5_01y1d")
 
