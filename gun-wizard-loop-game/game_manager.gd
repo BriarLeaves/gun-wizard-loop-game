@@ -10,6 +10,8 @@ func _ready():
 func _process(delta):
 	if game_is_running:
 		time_in_game += delta
+		if time_in_game > high_score:
+			high_score = time_in_game
 	if Input.is_action_just_pressed("toggle_fullscreen"):
 		var window_mode = DisplayServer.window_get_mode()
 		if window_mode != DisplayServer.WINDOW_MODE_FULLSCREEN:

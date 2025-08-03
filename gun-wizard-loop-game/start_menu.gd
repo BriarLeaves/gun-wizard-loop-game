@@ -5,6 +5,7 @@ func _ready():
 	defeat_message = get_node_or_null("MarginContainer/CenterContainer/VBoxContainer/DefeatMessage")
 	if defeat_message != null:
 		defeat_message.text = "The wizard has defeated you...\nIt took %s seconds." % (roundf(GameManager.time_in_game * 1000) / 1000)
+		defeat_message.text += "\nYour high score this session is %s seconds." % (roundf(GameManager.high_score * 1000) / 1000)
 
 func _on_start_game_pressed():
 	get_tree().change_scene_to_file("res://room.tscn")

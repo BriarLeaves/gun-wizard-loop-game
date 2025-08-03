@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dakfbjfrq7y0b"]
+[gd_scene load_steps=4 format=3 uid="uid://dakfbjfrq7y0b"]
 
 [ext_resource type="Script" uid="uid://b1hqkwhwpgyti" path="res://start_menu.gd" id="1_jwbto"]
+[ext_resource type="Texture2D" uid="uid://7ttkje3iw6fn" path="res://Assets/floor.png" id="2_ia0g5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ndybt"]
-font_size = 48
+font_size = 32
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -13,6 +14,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jwbto")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.593134, 0.593134, 0.593134, 1)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_ia0g5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -30,25 +38,34 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Pay Your Taxes, Mr. Wizard!"
+text = "Pay Your Taxes, 
+Mr. Wizard!"
 label_settings = SubResource("LabelSettings_ndybt")
+horizontal_alignment = 1
 
 [node name="StartGame" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 24
 text = "Start Game"
 
 [node name="QuitGame" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 24
 text = "Quit Game"
 
 [node name="Label2" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-text = "
-WASD to move
-Mouse to aim and shoot"
+text = "WASD to move
+Mouse to aim and shoot
+"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Game by Andy Vece, Marcelo Faria, and LackOfBeef
+Laugh by TokyoJoker"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
