@@ -1,0 +1,21 @@
+extends Enemy
+
+var speed: float = 300
+var direction_vector: Vector2 = Vector2.ZERO
+@onready var player = get_node("../Player")
+
+func _ready():
+	pass
+
+func _physics_process(delta):
+	move_and_slide()
+	screen_wrap()
+
+func initialize(start_position):
+	position = start_position
+	get_node("CollisionShape2D").set_deferred("disabled", true)
+	get_node()
+
+
+func _on_timer_timeout() -> void:
+	$Sprite2D.modulate = Color.AQUAMARINE

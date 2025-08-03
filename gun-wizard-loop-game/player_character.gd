@@ -42,5 +42,5 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			if obj.times_wrapped >= 1:
 				queue_free()
 				obj.queue_free()
-		elif obj is Enemy:
+		else:
 			queue_free()

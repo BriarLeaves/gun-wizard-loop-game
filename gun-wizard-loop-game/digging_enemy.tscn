@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0gosr6n3cbhe"]
+
+[ext_resource type="Texture2D" uid="uid://bdser5gbm7t4d" path="res://icon.svg" id="1_83car"]
+[ext_resource type="Script" uid="uid://btuq35rnewb1m" path="res://digging_enemy.gd" id="1_ie1jh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1sa8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eraac"]
+size = Vector2(100, 100)
+
+[node name="DiggingEnemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ie1jh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.607401, 0.473816, 1)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_83car")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u1sa8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="BulletCollider" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_eraac")
+debug_color = Color(0.444718, 0.452345, 1, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
