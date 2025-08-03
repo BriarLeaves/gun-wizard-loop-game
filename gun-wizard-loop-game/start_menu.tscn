@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://csidjals66oo1"]
+
+[ext_resource type="Script" uid="uid://b1hqkwhwpgyti" path="res://start_menu.gd" id="1_jwbto"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ndybt"]
+font_size = 48
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jwbto")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pay Your Taxes, Mr. Wizard!s"
+label_settings = SubResource("LabelSettings_ndybt")
+
+[node name="StartGame" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Start Game"
+
+[node name="QuitGame" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Quit Game"
+
+[node name="Label2" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "
+WASD to move
+Mouse to aim and shoot"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]
