@@ -18,7 +18,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	mouse_position = get_viewport().get_mouse_position()
 	player_arm.look_at(mouse_position)
-
+	if player_arm.global_position.x < mouse_position.x:
+		player_arm.flip_v = false
+	else:
+		player_arm.flip_v = true
 
 func _on_player_shoot_bullet() -> void:
 	bullet_direction = (mouse_position - shooting_point.global_position).normalized()
