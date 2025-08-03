@@ -10,6 +10,7 @@ func _ready() -> void:
 	current_enemies.append(enemies[0])
 	#current_enemies.append(enemies[1])
 	current_enemies.append(enemies[2])
+	current_enemies.append(enemies[3])
 
 # Called every frame. 'delta' is the elapsed time since the prwevious frame.
 func _process(delta: float) -> void:
@@ -18,10 +19,6 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	var enemyType = randi_range(0, current_enemies.size() - 1)
 	var enemy = current_enemies[enemyType].instantiate()
-	
-	if get_node("Player"):
-		$Timer.stop()
-		pass
 	
 	#if enemy == current_enemies[0] || enemy == current_enemies[1]:
 	if enemyType == 0:
