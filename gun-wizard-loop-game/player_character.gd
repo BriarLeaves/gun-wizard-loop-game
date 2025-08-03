@@ -4,7 +4,7 @@ var x_axis: float = 0 # variable represents the input on the x axis
 var y_axis: float = 0 # variable represents the input on the y axis
 var move_vector: Vector2 = Vector2.ZERO
 var mouse_position: Vector2 = Vector2.ZERO
-var player_speed: float = 400
+var player_speed: float = 240
 @onready var _animated_sprite = $AnimatedSprite2D
 
 @onready var screen_size: Vector2 = get_viewport_rect().size
