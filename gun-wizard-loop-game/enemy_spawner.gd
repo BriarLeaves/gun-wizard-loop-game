@@ -5,9 +5,6 @@ var current_enemies: Array[PackedScene]
 
 @onready var screen_size: Vector2 = get_viewport_rect().size
 
-@onready var player = get_node("../ScoreTimer")
-var time_elapsed: float = 0.0
-
 var time_spawn_digging: float = 15.0
 var time_spawn_exploding: float = 30.0
 
@@ -17,10 +14,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the prwevious frame.
 func _process(delta: float) -> void:
-	time_elapsed += delta
-	if time_elapsed >= time_spawn_digging:
+	GameManager.time_in_game += delta
+	if GameManager.time_in_game >= time_spawn_digging:
 		current_enemies.append(enemies[1])
-	if time_elapsed >= time_spawn_exploding:
+	if GameManager.time_in_game >= time_spawn_exploding:
 		current_enemies.append(enemies[2])
 
 func _on_timer_timeout() -> void:
