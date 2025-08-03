@@ -17,9 +17,10 @@ func _physics_process(delta):
 
 func initialize(start_position):
 	position = start_position
+	$Area2D.set_collision_layer_value(3, false)
 
 
-func _on_timer_timeout() -> void:
+func _on_animated_sprite_2d_animation_finished() -> void:
 	for x in coordinates:
 		for y in coordinates:
 			if x == 0 and y == 0:
@@ -32,3 +33,7 @@ func _on_timer_timeout() -> void:
 			bullet_instance.look_at(bullet_instance.position + bullet_direction)
 			$"../BulletManager".add_child(bullet_instance)
 	queue_free()
+
+
+func _on_iframe_timer_timeout() -> void:
+	$Area2D.set_collision_layer_value(3, true)

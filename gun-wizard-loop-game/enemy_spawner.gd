@@ -24,7 +24,7 @@ func _on_timer_timeout() -> void:
 	var enemyType = randi_range(0, current_enemies.size() - 1)
 	var enemy = current_enemies[enemyType].instantiate()
 	
-	if enemyType == 0:
+	if enemyType == 2:
 		var enemy_spawn_location = get_node("SpawnPath/SpawnLocation")
 		enemy_spawn_location.progress_ratio = randf()
 	
