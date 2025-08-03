@@ -72,7 +72,7 @@ texture = ExtResource("3_4akcp")
 offset = Vector2(19, 0)
 
 [node name="ShootingPoint" type="Node2D" parent="Arm"]
-position = Vector2(37, -6)
+position = Vector2(38, 0)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5up26")
