@@ -24,7 +24,6 @@ enemies = Array[PackedScene]([ExtResource("2_4o3f6"), ExtResource("4_x5k2b"), Ex
 
 [node name="Floor" type="Sprite2D" parent="."]
 position = Vector2(323, 184)
-texture = ExtResource("7_8cv3p")
 
 [node name="Player" parent="." instance=ExtResource("1_88gup")]
 position = Vector2(516, 288)
