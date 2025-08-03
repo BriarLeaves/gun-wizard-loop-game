@@ -1,7 +1,7 @@
 extends Node
 
 @onready var bullet = preload("res://bullet.tscn")
-@onready var player = get_node("../Player")
+@onready var player_arm = get_node("../Player/Arm")
 @onready var shooting_point = get_node("../Player/Arm/ShootingPoint")
 
 var mouse_position: Vector2 = Vector2.ZERO
@@ -17,10 +17,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	mouse_position = get_viewport().get_mouse_position()
+	player_arm.look_at(mouse_position)
 
 
 func _on_player_shoot_bullet() -> void:
-	mouse_position = get_viewport().get_mouse_position()
 	bullet_direction = (mouse_position - shooting_point.global_position).normalized()
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.velocity = bullet_direction * bullet_speed
