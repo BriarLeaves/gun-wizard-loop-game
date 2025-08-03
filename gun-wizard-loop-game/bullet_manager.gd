@@ -1,6 +1,7 @@
 extends Node
 
 @onready var bullet = preload("res://bullet.tscn")
+@onready var player = get_node("../Player")
 @onready var player_arm = get_node("../Player/Arm")
 @onready var shooting_point = get_node("../Player/Arm/ShootingPoint")
 
@@ -25,7 +26,7 @@ func _process(delta: float) -> void:
 		player_arm.flip_v = true
 
 func _on_player_shoot_bullet() -> void:
-	bullet_direction = (mouse_position - shooting_point.global_position).normalized()
+	bullet_direction = (mouse_position - player.global_position).normalized()
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.velocity = bullet_direction * bullet_speed
 	bullet_instance.position = shooting_point.global_position

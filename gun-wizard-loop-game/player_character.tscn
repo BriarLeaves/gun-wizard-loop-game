@@ -72,15 +72,18 @@ texture = ExtResource("3_4akcp")
 offset = Vector2(19, 0)
 
 [node name="ShootingPoint" type="Node2D" parent="Arm"]
-position = Vector2(38, 0)
+position = Vector2(38, -6)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_5up26")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_mask = 14
 
 [node name="HazardCollider" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("RectangleShape2D_4akcp")
 debug_color = Color(0.444718, 0.452345, 1, 0.42)
 
