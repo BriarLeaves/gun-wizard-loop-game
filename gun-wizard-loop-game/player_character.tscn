@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://i6n47d8uj3a8"]
+[gd_scene load_steps=5 format=3 uid="uid://i6n47d8uj3a8"]
 
 [ext_resource type="Script" uid="uid://dfal61w0xmc11" path="res://player_character.gd" id="1_02ohv"]
 [ext_resource type="Texture2D" uid="uid://bdser5gbm7t4d" path="res://icon.svg" id="2_5up26"]
@@ -6,8 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5up26"]
 size = Vector2(75, 75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4akcp"]
+size = Vector2(75, 75)
+
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 30
+collision_mask = 26
 script = ExtResource("1_02ohv")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -17,3 +20,13 @@ texture = ExtResource("2_5up26")
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_5up26")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 6
+
+[node name="HazardCollider" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4akcp")
+debug_color = Color(0.444718, 0.452345, 1, 0.42)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

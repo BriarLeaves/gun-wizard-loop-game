@@ -15,5 +15,5 @@ func enemy_death():
 	pass
 
 func screen_wrap():
-	position.x = wrapf(position.x, 0, screen_size.x)
-	position.y = wrapf(position.y, 0, screen_size.y)
+	position.x = wrapf(position.x, -90, screen_size.x + 90)
+	position.y = wrapf(position.y, -90, screen_size.y + 90)

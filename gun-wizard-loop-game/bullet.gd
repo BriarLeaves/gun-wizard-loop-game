@@ -1,4 +1,5 @@
 extends Area2D
+class_name Bullet
 
 var velocity: Vector2 = Vector2.ZERO
 var times_wrapped: int = 0 #number of times this bullet has screen wrapped (if it has, then it may damage the player)

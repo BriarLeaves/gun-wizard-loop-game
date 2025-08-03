@@ -35,4 +35,12 @@ func _physics_process(delta):
 	velocity = move_vector * player_speed
 	position.x = wrapf(position.x, 0, screen_size.x)
 	position.y = wrapf(position.y, 0, screen_size.y)
-	
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	for obj in $Area2D.get_overlapping_areas():
+		if obj is Bullet:
+			if obj.times_wrapped >= 1:
+				queue_free()
+				obj.queue_free()
+		elif obj is Enemy:
+			queue_free()

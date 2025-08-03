@@ -7,7 +7,6 @@ var mouse_position: Vector2 = Vector2.ZERO
 
 var bullet_direction: Vector2 = Vector2.ZERO
 @export var bullet_speed: float = 3
-@export var bullet_limit: int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,6 +26,3 @@ func _on_player_shoot_bullet() -> void:
 	bullet_instance.velocity = bullet_direction * bullet_speed
 	bullet_instance.position = player.position
 	$"../BulletManager".add_child(bullet_instance)
-	
-	if get_children().size() > bullet_limit:
-		get_children()[0].queue_free()
