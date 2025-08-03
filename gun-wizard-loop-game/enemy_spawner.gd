@@ -16,9 +16,11 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_timer_timeout() -> void:
-	var enemy = current_enemies.pick_random().instantiate()
+	var enemyType = randi_range(0, current_enemies.size() - 1)
+	var enemy = current_enemies[enemyType].instantiate()
 	
-	if enemy == current_enemies[0] || enemy == current_enemies[1]:
+	#if enemy == current_enemies[0] || enemy == current_enemies[1]:
+	if enemyType == 0:
 		var enemy_spawn_location = get_node("SpawnPath/SpawnLocation")
 		enemy_spawn_location.progress_ratio = randf()
 	

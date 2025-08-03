@@ -13,7 +13,8 @@ func _physics_process(delta):
 
 func initialize(start_position):
 	position = start_position
-	#get_node("CollisionShape2D").set_deferred("disabled", true)
+	get_node("CollisionShape2D").set_deferred("disabled", true)
+	get_node()
 
 
 func _on_timer_timeout() -> void:
