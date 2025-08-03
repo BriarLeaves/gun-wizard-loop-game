@@ -16,10 +16,12 @@ func _physics_process(delta):
 
 func initialize(start_position):
 	position = start_position
+	$Area2D.set_collision_layer_value(3, false)
 
 
 func _on_timer_timeout() -> void:
 	_animated_sprite.play("idle")
+	$Area2D.set_collision_layer_value(3, true)
 
 
 func _on_shoot_timer_timeout() -> void:

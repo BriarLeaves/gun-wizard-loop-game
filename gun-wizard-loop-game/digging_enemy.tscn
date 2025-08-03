@@ -56,8 +56,8 @@ size = Vector2(41, 80)
 size = Vector2(41, 80)
 
 [node name="DiggingEnemy" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_ie1jh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
