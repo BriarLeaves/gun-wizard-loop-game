@@ -44,7 +44,7 @@ func play_music(file_path: String, volume_db: float):
 
 func play_jingle(file_path: String, volume_db: float):
 	jingling = true
-	var _timestamp: float = music.get_playback_position()
+	var timestamp: float = music.get_playback_position()
 	music.stop()
 	music.volume_db = volume_db
 	music.stream = load(file_path)
@@ -52,6 +52,5 @@ func play_jingle(file_path: String, volume_db: float):
 	await music.finished
 	music.stream = current_music
 	music.volume_db = music_volume
-	#music.play(timestamp)
-	music.play()
+	music.play(timestamp)
 	jingling = false

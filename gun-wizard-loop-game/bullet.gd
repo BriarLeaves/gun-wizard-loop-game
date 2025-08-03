@@ -8,6 +8,7 @@ var times_wrapped: int = 0 #number of times this bullet has screen wrapped (if i
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioManager.play_sound("res://sounds/shot.wav", -12)
 	pass # Replace with function body.
 
 
