@@ -29,5 +29,6 @@ func _on_timer_timeout() -> void:
 			bullet_instance.velocity = bullet_direction * bullet_speed
 			bullet_instance.position = position
 			bullet_instance.times_wrapped = 1
+			bullet_instance.look_at(bullet_instance.position + bullet_direction)
 			$"../BulletManager".add_child(bullet_instance)
 	queue_free()

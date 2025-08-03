@@ -1,16 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://6gey8ieo7rlf"]
+[gd_scene load_steps=11 format=3 uid="uid://6gey8ieo7rlf"]
 
 [ext_resource type="PackedScene" uid="uid://i6n47d8uj3a8" path="res://player_character.tscn" id="1_88gup"]
 [ext_resource type="PackedScene" uid="uid://dhdp3qnxwlh5h" path="res://moving_enemy.tscn" id="2_4o3f6"]
 [ext_resource type="Script" uid="uid://dutfqa6xv3364" path="res://bullet_manager.gd" id="2_bisa2"]
 [ext_resource type="Script" uid="uid://cct7dhqh8jhx8" path="res://enemy_spawner.gd" id="4_v5vuv"]
 [ext_resource type="PackedScene" uid="uid://b0gosr6n3cbhe" path="res://digging_enemy.tscn" id="4_x5k2b"]
+[ext_resource type="Texture2D" uid="uid://7ttkje3iw6fn" path="res://Assets/floor.png" id="5_01y1d"]
 [ext_resource type="PackedScene" uid="uid://bveage22x5vqw" path="res://exploding_enemy.tscn" id="5_8cv3p"]
 [ext_resource type="Script" uid="uid://b5tftnygisini" path="res://ui_label.gd" id="7_8cv3p"]
 
 [sub_resource type="Curve2D" id="Curve2D_ka7wq"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -60, -58, 0, 0, 0, 0, 1213, -59, 0, 0, 0, 0, 1212, 709, 0, 0, 0, 0, -60, 710, 0, 0, 0, 0, -60, -58)
+"points": PackedVector2Array(0, 0, 0, 0, -60, -58, 0, 0, 0, 0, 699, -61, 0, 0, 0, 0, 699, 422, 0, 0, 0, 0, -59, 422, 0, 0, 0, 0, -60, -58)
 }
 point_count = 5
 
@@ -24,9 +25,10 @@ enemies = Array[PackedScene]([ExtResource("2_4o3f6"), ExtResource("4_x5k2b"), Ex
 
 [node name="Floor" type="Sprite2D" parent="."]
 position = Vector2(323, 184)
+texture = ExtResource("5_01y1d")
 
 [node name="Player" parent="." instance=ExtResource("1_88gup")]
-position = Vector2(516, 288)
+position = Vector2(319, 184)
 
 [node name="BulletManager" type="Node" parent="."]
 script = ExtResource("2_bisa2")
@@ -37,12 +39,12 @@ curve = SubResource("Curve2D_ka7wq")
 
 [node name="SpawnLocation" type="PathFollow2D" parent="SpawnPath"]
 position = Vector2(-60, -58)
-rotation = -0.000785546
+rotation = -0.00395255
 
 [node name="Spawner Circles" type="Node2D" parent="."]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Spawner Circles"]
-position = Vector2(1212, -60)
+position = Vector2(700, -60)
 mesh = SubResource("SphereMesh_x5k2b")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="Spawner Circles"]
@@ -50,11 +52,11 @@ position = Vector2(-60, -60)
 mesh = SubResource("SphereMesh_x5k2b")
 
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="Spawner Circles"]
-position = Vector2(-60, 708)
+position = Vector2(-60, 420)
 mesh = SubResource("SphereMesh_x5k2b")
 
 [node name="MeshInstance2D4" type="MeshInstance2D" parent="Spawner Circles"]
-position = Vector2(1212, 708)
+position = Vector2(700, 420)
 mesh = SubResource("SphereMesh_x5k2b")
 
 [node name="EnemyTimer" type="Timer" parent="."]

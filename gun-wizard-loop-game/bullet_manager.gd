@@ -29,4 +29,5 @@ func _on_player_shoot_bullet() -> void:
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.velocity = bullet_direction * bullet_speed
 	bullet_instance.position = shooting_point.global_position
+	bullet_instance.look_at(mouse_position)
 	$"../BulletManager".add_child(bullet_instance)

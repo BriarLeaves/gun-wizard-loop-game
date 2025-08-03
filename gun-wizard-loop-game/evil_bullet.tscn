@@ -1,16 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://fvijaf30lqts"]
+[gd_scene load_steps=4 format=3 uid="uid://fvijaf30lqts"]
 
 [ext_resource type="Script" uid="uid://cpa4l3gwi1p0p" path="res://bullet.gd" id="1_jletd"]
+[ext_resource type="Texture2D" uid="uid://cv60352bjfnfi" path="res://Assets/bullet2.png" id="2_20sio"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_enncn"]
+radius = 5.0
+height = 14.0
 
 [node name="EvilBullet" type="Area2D"]
 collision_layer = 8
 script = ExtResource("1_jletd")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_rtl8c")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_enncn")
 
-[node name="Sprite" type="Polygon2D" parent="."]
-color = Color(0.828744, 0, 0.0152335, 1)
-polygon = PackedVector2Array(0, -10, 8, -6, 10, 0, 7, 7, 0, 10, -7, 7, -10, 0, -7, -7)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_20sio")
