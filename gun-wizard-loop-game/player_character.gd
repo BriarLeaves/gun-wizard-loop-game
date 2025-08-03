@@ -28,6 +28,10 @@ func input():
 		_animated_sprite.play("walking")
 	else:
 		_animated_sprite.play("idle")
+	if velocity.x > 1:
+		_animated_sprite.flip_h = false
+	elif velocity.x < 0:
+		_animated_sprite.flip_h = true
 
 func _physics_process(delta):
 	input()
