@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://6gey8ieo7rlf"]
+[gd_scene load_steps=9 format=3 uid="uid://6gey8ieo7rlf"]
 
 [ext_resource type="PackedScene" uid="uid://i6n47d8uj3a8" path="res://player_character.tscn" id="1_88gup"]
 [ext_resource type="PackedScene" uid="uid://dhdp3qnxwlh5h" path="res://moving_enemy.tscn" id="2_4o3f6"]
 [ext_resource type="Script" uid="uid://dutfqa6xv3364" path="res://bullet_manager.gd" id="2_bisa2"]
+[ext_resource type="PackedScene" uid="uid://chs22785iih0f" path="res://seeking_enemy.tscn" id="3_ka7wq"]
 [ext_resource type="Script" uid="uid://cct7dhqh8jhx8" path="res://enemy_spawner.gd" id="4_v5vuv"]
+[ext_resource type="PackedScene" uid="uid://b0gosr6n3cbhe" path="res://digging_enemy.tscn" id="4_x5k2b"]
 
 [sub_resource type="Curve2D" id="Curve2D_ka7wq"]
 _data = {
@@ -17,7 +19,7 @@ height = 20.0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("4_v5vuv")
-enemies = Array[PackedScene]([ExtResource("2_4o3f6")])
+enemies = Array[PackedScene]([ExtResource("2_4o3f6"), ExtResource("3_ka7wq"), ExtResource("4_x5k2b")])
 
 [node name="Player" parent="." instance=ExtResource("1_88gup")]
 position = Vector2(516, 288)

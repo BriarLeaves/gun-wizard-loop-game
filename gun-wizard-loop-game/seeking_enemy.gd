@@ -1,0 +1,17 @@
+extends Enemy
+
+var speed: float = 300
+var direction_vector: Vector2 = Vector2.ZERO
+@onready var player = get_node("../Player")
+
+func _ready():
+	pass
+
+func _physics_process(delta):
+	direction_vector = (player.position - position).normalized()
+	velocity = direction_vector * speed
+	move_and_slide()
+	screen_wrap()
+
+func initialize(start_position):
+	position = start_position
