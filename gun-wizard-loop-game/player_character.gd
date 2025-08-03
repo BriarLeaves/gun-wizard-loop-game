@@ -40,7 +40,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	for obj in $Area2D.get_overlapping_areas():
 		if obj is Bullet:
 			if obj.times_wrapped >= 1:
-				queue_free()
-				obj.queue_free()
+				call_deferred("die")
 		else:
-			queue_free()
+			call_deferred("die")
+
+func die():
+	AudioManager.play_jingle("res://sounds/evil-laugh-placeholder.ogg", -12)
+	get_tree().change_scene_to_file("res://game_over.tscn")

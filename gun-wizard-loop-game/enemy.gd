@@ -11,6 +11,7 @@ func take_damage(amt):
 	pass
 	
 func enemy_death():
+	AudioManager.play_sound("res://sounds/explode2.wav", -12)
 	queue_free()
 	pass
 
@@ -21,4 +22,4 @@ func screen_wrap():
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	for obj in $Area2D.get_overlapping_areas():
 		obj.queue_free()
-		queue_free()
+	take_damage(3)
