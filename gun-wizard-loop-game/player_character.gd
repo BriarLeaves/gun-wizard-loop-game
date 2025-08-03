@@ -11,6 +11,8 @@ var player_speed: float = 400
 signal shoot_bullet
 
 func _ready():
+	GameManager.game_is_running = true
+	GameManager.time_in_game = 0
 	pass
 	
 func _process(delta):
@@ -49,4 +51,5 @@ func die():
 		AudioManager.play_jingle("res://sounds/evil-laugh.ogg", -12)
 	else: 
 		AudioManager.play_jingle("res://sounds/evil-laugh-2.ogg", -12)
+		GameManager.game_is_running = false
 	get_tree().change_scene_to_file("res://game_over.tscn")

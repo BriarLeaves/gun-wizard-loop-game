@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cct7dhqh8jhx8" path="res://enemy_spawner.gd" id="4_v5vuv"]
 [ext_resource type="PackedScene" uid="uid://b0gosr6n3cbhe" path="res://digging_enemy.tscn" id="4_x5k2b"]
 [ext_resource type="PackedScene" uid="uid://bveage22x5vqw" path="res://exploding_enemy.tscn" id="5_8cv3p"]
-[ext_resource type="Texture2D" uid="uid://7ttkje3iw6fn" path="res://Assets/floor.png" id="7_8cv3p"]
+[ext_resource type="Script" uid="uid://b5tftnygisini" path="res://ui_label.gd" id="7_8cv3p"]
 
 [sub_resource type="Curve2D" id="Curve2D_ka7wq"]
 _data = {
@@ -61,6 +61,17 @@ mesh = SubResource("SphereMesh_x5k2b")
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 1.5
 autostart = true
+
+[node name="VBoxContainer" type="MarginContainer" parent="."]
+offset_right = 47.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Time: "
+script = ExtResource("7_8cv3p")
 
 [connection signal="shoot_bullet" from="Player" to="BulletManager" method="_on_player_shoot_bullet"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_timer_timeout"]
