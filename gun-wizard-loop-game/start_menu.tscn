@@ -30,7 +30,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Pay Your Taxes, Mr. Wizard!s"
+text = "Pay Your Taxes, Mr. Wizard!"
 label_settings = SubResource("LabelSettings_ndybt")
 
 [node name="StartGame" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
