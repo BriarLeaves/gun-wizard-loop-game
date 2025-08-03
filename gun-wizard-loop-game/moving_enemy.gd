@@ -1,7 +1,6 @@
 extends Enemy
 
-var starting_velocity: float = 400
-var speed: float = 400
+var speed: float = 300
 
 func _ready():
 	pass

@@ -8,6 +8,9 @@ var current_enemies: Array[PackedScene]
 var time_spawn_digging: float = 15.0
 var time_spawn_exploding: float = 30.0
 
+var digging_added: bool = false
+var exploding_added: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_enemies.append(enemies[0])
@@ -15,16 +18,19 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the prwevious frame.
 func _process(delta: float) -> void:
 	GameManager.time_in_game += delta
-	if GameManager.time_in_game >= time_spawn_digging:
+	if GameManager.time_in_game >= time_spawn_digging and not digging_added:
 		current_enemies.append(enemies[1])
-	if GameManager.time_in_game >= time_spawn_exploding:
+		digging_added = true
+	if GameManager.time_in_game >= time_spawn_exploding and not exploding_added:
 		current_enemies.append(enemies[2])
+		exploding_added = true
 
 func _on_timer_timeout() -> void:
 	var enemyType = randi_range(0, current_enemies.size() - 1)
+	print(current_enemies.size() - 1)
 	var enemy = current_enemies[enemyType].instantiate()
 	
-	if enemyType == 2:
+	if enemyType == 0:
 		var enemy_spawn_location = get_node("SpawnPath/SpawnLocation")
 		enemy_spawn_location.progress_ratio = randf()
 	
