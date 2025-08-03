@@ -28,7 +28,7 @@ func _on_timer_timeout() -> void:
 		enemy.initialize(enemy_spawn_location.position)
 	else:
 		var enemy_spawn_location = Vector2(randf_range(0, screen_size.x), randf_range(0, screen_size.y))
-		while enemy_spawn_location.distance_to(get_node("Player").position) < 20:
+		while enemy_spawn_location.distance_to(get_node("Player").position) < 50:
 			enemy_spawn_location = Vector2(randf_range(0, screen_size.x), randf_range(0, screen_size.y))
 		enemy.initialize(enemy_spawn_location)
 	add_child(enemy)
