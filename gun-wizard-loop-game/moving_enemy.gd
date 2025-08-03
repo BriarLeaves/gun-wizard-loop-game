@@ -13,6 +13,5 @@ func _physics_process(delta):
 func initialize(start_position):
 	position = start_position
 	var random_direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
-	look_at(random_direction)
 	
 	velocity = random_direction * speed
