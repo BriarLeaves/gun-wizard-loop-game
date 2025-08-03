@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://6gey8ieo7rlf"]
+[gd_scene load_steps=9 format=3 uid="uid://6gey8ieo7rlf"]
 
 [ext_resource type="PackedScene" uid="uid://i6n47d8uj3a8" path="res://player_character.tscn" id="1_88gup"]
 [ext_resource type="PackedScene" uid="uid://dhdp3qnxwlh5h" path="res://moving_enemy.tscn" id="2_4o3f6"]
 [ext_resource type="Script" uid="uid://dutfqa6xv3364" path="res://bullet_manager.gd" id="2_bisa2"]
-[ext_resource type="PackedScene" uid="uid://chs22785iih0f" path="res://seeking_enemy.tscn" id="3_ka7wq"]
 [ext_resource type="Script" uid="uid://cct7dhqh8jhx8" path="res://enemy_spawner.gd" id="4_v5vuv"]
 [ext_resource type="PackedScene" uid="uid://b0gosr6n3cbhe" path="res://digging_enemy.tscn" id="4_x5k2b"]
 [ext_resource type="PackedScene" uid="uid://bveage22x5vqw" path="res://exploding_enemy.tscn" id="5_8cv3p"]
@@ -20,7 +19,7 @@ height = 20.0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("4_v5vuv")
-enemies = Array[PackedScene]([ExtResource("2_4o3f6"), ExtResource("3_ka7wq"), ExtResource("4_x5k2b"), ExtResource("5_8cv3p")])
+enemies = Array[PackedScene]([ExtResource("2_4o3f6"), ExtResource("4_x5k2b"), ExtResource("5_8cv3p")])
 
 [node name="Player" parent="." instance=ExtResource("1_88gup")]
 position = Vector2(516, 288)
@@ -54,8 +53,9 @@ mesh = SubResource("SphereMesh_x5k2b")
 position = Vector2(1212, 708)
 mesh = SubResource("SphereMesh_x5k2b")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 1.5
 autostart = true
 
 [connection signal="shoot_bullet" from="Player" to="BulletManager" method="_on_player_shoot_bullet"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_timer_timeout"]
